@@ -7,16 +7,23 @@
 //
 
 import Foundation
-
+import Alamofire
 
 protocol NumberFactRepository {
-    func fetchFactFor(_ number: Int) -> String
+    func fetchFactFor(_ number: Int,numberFactFetched: @escaping (String?) -> Void)
 }
 
 class NumberFactRepositoryImplementation : NumberFactRepository {
     
-    func fetchFactFor(_ number: Int) -> String {
-        return "\(number) is a very big number"
+    func fetchFactFor(_ number: Int, numberFactFetched: @escaping (String?) ->Void) {
+        let endPoint = "\(URL_BASE)\(number)"
+        Alamofire.request(endPoint).responseString(completionHandler: {
+            (_ response: DataResponse<String>?) in
+            if let response = response {
+                let responseString  = String(describing: response)
+                numberFactFetched(responseString)
+            }
+        })
     }
     
 }

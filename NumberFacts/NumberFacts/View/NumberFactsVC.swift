@@ -15,7 +15,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.userNumberViewModel = UserNumberViewModel(9)
-        print(self.userNumberViewModel.showDisplayableFact)
+        self.userNumberViewModel.delegate = self
     }
 }
 
+
+extension ViewController: NumberFactDelegate {
+    func doneFetchingNumberFact() {
+        print(self.userNumberViewModel.showDisplayableFact)
+    }
+}

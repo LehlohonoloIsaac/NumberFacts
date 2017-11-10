@@ -8,18 +8,27 @@
 
 import Foundation
 
-struct UserNumberViewModel: NumberFactRepositoryInjectable{
+protocol NumberFactDelegate {
+    func doneFetchingNumberFact()
+}
 
-    private var userNumber: Int!
-    private var fact: String?
+class UserNumberViewModel: NumberFactRepositoryInjectable{
+
+    private var _userNumber: Int!
+    private var _fact: String?
+    var delegate: NumberFactDelegate!
     
     init(_ number: Int) {
-        self.userNumber = number
-        self.fact = self.numberFact.fetchFactFor(self.userNumber)
+        self._userNumber = number
+        self.numberFact.fetchFactFor(self._userNumber, numberFactFetched: {fact in
+            self._fact = fact
+            self.delegate.doneFetchingNumberFact()
+        })
     }
-    
+
     var showDisplayableFact: String {
-        return self.fact!
+        return self._fact!
     }
-    
 }
+
+
