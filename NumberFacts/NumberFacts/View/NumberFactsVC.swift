@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         self.userNumberViewModel = UserNumberViewModel()
         self.userNumberViewModel.delegate = self
         self.populateOptionButtonsArray()
+        self.updateTab(button: triviaButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {
