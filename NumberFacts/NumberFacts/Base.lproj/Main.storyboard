@@ -200,7 +200,9 @@
                     </view>
                     <connections>
                         <outlet property="dateButton" destination="VvH-OE-CPf" id="KoD-vP-wYs"/>
+                        <outlet property="factContainerView" destination="GUy-Cs-tLv" id="fBC-RF-5CL"/>
                         <outlet property="factLabel" destination="Tbb-uL-OOA" id="XFt-Oz-0k7"/>
+                        <outlet property="getFactButton" destination="1U4-qI-epF" id="UCH-w8-W5i"/>
                         <outlet property="headingLabel" destination="kdL-eN-P3x" id="AnM-gW-Zlt"/>
                         <outlet property="mathButton" destination="DCN-1l-7n9" id="B0t-jx-uZD"/>
                         <outlet property="triviaButton" destination="fPL-rN-vMW" id="JBP-Je-e08"/>

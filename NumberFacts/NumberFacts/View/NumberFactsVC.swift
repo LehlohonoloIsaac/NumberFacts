@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var yearButton: UIButton!
     @IBOutlet weak var headingLabel: UILabel!
+    @IBOutlet weak var getFactButton: UIButton!
+    @IBOutlet weak var factContainerView: UIView!
     
     private var optionButtons = Array<UIButton>()
     
@@ -27,6 +29,19 @@ class ViewController: UIViewController {
         self.userNumberViewModel = UserNumberViewModel()
         self.userNumberViewModel.delegate = self
         self.populateOptionButtonsArray()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.configureView()
+    }
+    
+    func configureView(){
+        getFactButton.createBorder(withRadius: 5)
+        factContainerView.createBorder(withRadius: 5)
+        for button in optionButtons {
+            button.createBorder(withRadius: 3)
+        }
     }
     
     func populateOptionButtonsArray() {
