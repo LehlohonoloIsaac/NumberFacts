@@ -25,8 +25,15 @@ class UserNumberViewModel: NumberFactRepositoryInjectable{
         })
     }
     
-    func generateAnotherRandomFact(){
+    func generateRandomFact(){
         self.numberFact.fetchFactForRandomNumber(numberFactFetched: {fact in
+            self._fact = fact
+            self.delegate.doneFetchingNumberFact()
+        })
+    }
+    
+    func generateFactFor(_ number: Int){
+        self.numberFact.fetchFactForNumber(number: number, numberFactFetched: {fact in
             self._fact = fact
             self.delegate.doneFetchingNumberFact()
         })
