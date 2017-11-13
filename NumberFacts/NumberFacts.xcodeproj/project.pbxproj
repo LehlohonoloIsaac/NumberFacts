@@ -22,6 +22,7 @@
 		ED8A483C1FB49745008962B9 /* InjectionMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8A483B1FB49745008962B9 /* InjectionMapper.swift */; };
 		ED8A483E1FB49A44008962B9 /* NumberFactRepositoryInjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8A483D1FB49A44008962B9 /* NumberFactRepositoryInjectable.swift */; };
 		EDA9B6691FB9AD4E00878236 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA9B6681FB9AD4E00878236 /* UIViewExtensions.swift */; };
+		EDA9B66C1FB9C23700878236 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA9B66B1FB9C23700878236 /* EndPoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		ED8A483B1FB49745008962B9 /* InjectionMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionMapper.swift; sourceTree = "<group>"; };
 		ED8A483D1FB49A44008962B9 /* NumberFactRepositoryInjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFactRepositoryInjectable.swift; sourceTree = "<group>"; };
 		EDA9B6681FB9AD4E00878236 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		EDA9B66B1FB9C23700878236 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		F056D1F3A9F65A73D1B1A0D4 /* Pods-NumberFactsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NumberFactsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NumberFactsTests/Pods-NumberFactsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 		ED8A480E1FB4930F008962B9 /* NumberFacts */ = {
 			isa = PBXGroup;
 			children = (
+				EDA9B66A1FB9C20800878236 /* Helpers */,
 				EDA9B6671FB9AD2100878236 /* Extensions */,
 				ED7FAD0A1FB59EC400800920 /* Utils */,
 				ED8A483A1FB4971E008962B9 /* Injection */,
@@ -203,6 +206,14 @@
 				EDA9B6681FB9AD4E00878236 /* UIViewExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EDA9B66A1FB9C20800878236 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EDA9B66B1FB9C23700878236 /* EndPoints.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,6 +433,7 @@
 				ED8A483E1FB49A44008962B9 /* NumberFactRepositoryInjectable.swift in Sources */,
 				ED8A48391FB49655008962B9 /* Repository.swift in Sources */,
 				ED8A48101FB4930F008962B9 /* AppDelegate.swift in Sources */,
+				EDA9B66C1FB9C23700878236 /* EndPoints.swift in Sources */,
 				ED8A48341FB493C6008962B9 /* UserNumber.swift in Sources */,
 				EDA9B6691FB9AD4E00878236 /* UIViewExtensions.swift in Sources */,
 				ED7FAD0C1FB59EDE00800920 /* Constants.swift in Sources */,

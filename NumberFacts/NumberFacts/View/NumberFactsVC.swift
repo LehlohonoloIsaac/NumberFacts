@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var generateRandomFactButton: UIButton!
     
     private var optionButtons = Array<UIButton>()
+    private var endPoint: EndPoint = .random
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,42 +76,61 @@ class ViewController: UIViewController {
         }
     }
     
+     func updateEndPointTobeARandomEndPoint() {
+        switch endPoint {
+        case .trivia:
+            self.endPoint = .random
+            break
+        case .math:
+            self.endPoint = .randomMath
+            break
+        case .date:
+            self.endPoint = .randomDate
+            break
+        case .year:
+            self.endPoint = .randomYear
+            break
+        default:
+            break
+        }
+    }
+    
     @IBAction func onGenerateFactPressed(_ sender: UIButton) {
         getFactButton.isEnabled = false
         generateRandomFactButton.isEnabled = false
-        self.userNumberViewModel.generateRandomFact()
+        updateEndPointTobeARandomEndPoint()
+        self.userNumberViewModel.generateRandomFact(endPoint)
+    }
+    
+    fileprivate func updateTab(button tabButton: UIButton) {
+        for button in optionButtons {
+            button.backgroundColor =  UIColor.darkGray
+        }
+        tabButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func onTriviaButtonPressed(_ sender: UIButton) {
         headingLabel.text = "Enter your favourite number to get an interesting fact about it"
-        for button in optionButtons {
-            button.backgroundColor =  UIColor.darkGray
-        }
-        triviaButton.backgroundColor = UIColor.lightGray
+        updateTab(button: triviaButton)
+        self.endPoint = .trivia
     }
     
     @IBAction func onMathButtonPressed(_ sender: UIButton) {
         headingLabel.text = "Enter your favourite number to get an interesting maths fact about it"
-        for button in optionButtons {
-            button.backgroundColor =  UIColor.darkGray
-        }
-        mathButton.backgroundColor = UIColor.lightGray
+        updateTab(button: mathButton)
+        self.endPoint = .math
     }
     
     @IBAction func onDateButtonPressed(_ sender: Any) {
           headingLabel.text = "Enter your favourite date to get an interesting fact about it"
-        for button in optionButtons {
-            button.backgroundColor =  UIColor.darkGray
-        }
-        dateButton.backgroundColor = UIColor.lightGray
+          updateTab(button: dateButton)
+            self.endPoint = .date
     }
     
     @IBAction func onYearButtonPressed(_ sender: Any) {
           headingLabel.text = "Enter your favourite year to get an interesting fact about it"
-        for button in optionButtons {
-            button.backgroundColor =  UIColor.darkGray
-        }
-        yearButton.backgroundColor = UIColor.lightGray
+            updateTab(button: yearButton)
+        self.endPoint = .year
     }
     
 }

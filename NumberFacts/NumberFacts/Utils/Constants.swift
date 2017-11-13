@@ -9,4 +9,7 @@
 import Foundation
 
 let URL_BASE = "http://numbersapi.com/"
-let RANDOM_NUMBER = "random/"
+let RANDOM_NUMBER = "random/trivia/"
+let RANDOM_YEAR = "random/year/"
+let RANDOM_DATE = "random/date"
+let RANDOM_MATH = "random/math"
