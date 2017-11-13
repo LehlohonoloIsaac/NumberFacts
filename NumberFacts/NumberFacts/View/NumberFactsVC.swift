@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var getFactButton: UIButton!
     @IBOutlet weak var factContainerView: UIView!
+    @IBOutlet weak var generateRandomFactButton: UIButton!
     
     private var optionButtons = Array<UIButton>()
     
@@ -51,12 +52,27 @@ class ViewController: UIViewController {
         optionButtons.append(yearButton)
     }
     
+    func showAlert(withMessage message: String? = "Make sure the input field is not empty"){
+        let alertController = UIAlertController(title: "Wrong Input", message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func onGetFactPressed(_ sender: UIButton) {
-        let number: Int = Int(userInput.text!)!
-        self.userNumberViewModel.generateFactFor(number)
+        if !(userInput.text?.isEmpty)! {
+            getFactButton.isEnabled = false
+            generateRandomFactButton.isEnabled = false
+            let number: Int = Int(userInput.text!)!
+            self.userNumberViewModel.generateFactFor(number)
+        } else {
+            self.showAlert(withMessage: "Make sure the input text is not empty and is in a correct format")
+        }
     }
     
     @IBAction func onGenerateFactPressed(_ sender: UIButton) {
+        getFactButton.isEnabled = false
+        generateRandomFactButton.isEnabled = false
         self.userNumberViewModel.generateRandomFact()
     }
     
@@ -98,5 +114,8 @@ class ViewController: UIViewController {
 extension ViewController: NumberFactDelegate {
     func doneFetchingNumberFact() {
         factLabel.text = self.userNumberViewModel.showDisplayableFact
+        getFactButton.isEnabled = true
+        generateRandomFactButton.isEnabled = true
     }
 }
+
