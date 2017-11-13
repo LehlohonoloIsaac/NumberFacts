@@ -31,12 +31,6 @@
                                     <constraint firstAttribute="height" constant="80" id="Hbe-gJ-hT4"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facts about numbers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="sMB-bF-DXE">
-                                <rect key="frame" x="0.0" y="48" width="375" height="24"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsm-v3-tcC">
                                 <rect key="frame" x="0.0" y="20" width="375" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -163,10 +157,15 @@
                                     <action selector="onGenerateFactPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SNW-83-gFF"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facts about numbers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zmd-Px-Huw">
+                                <rect key="frame" x="0.0" y="48" width="375" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="sMB-bF-DXE" firstAttribute="centerY" secondItem="xsm-v3-tcC" secondAttribute="centerY" id="2Np-gn-70b"/>
                             <constraint firstItem="VWX-Wb-Ejm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6Mm-iP-30p"/>
                             <constraint firstItem="dAN-lG-2dw" firstAttribute="centerX" secondItem="9F2-Xe-UuK" secondAttribute="centerX" id="6WM-3N-RHv"/>
                             <constraint firstItem="9hm-Po-M8B" firstAttribute="top" secondItem="kdL-eN-P3x" secondAttribute="bottom" constant="16" id="6pm-tL-zOD"/>
@@ -177,7 +176,7 @@
                             <constraint firstItem="kdL-eN-P3x" firstAttribute="width" secondItem="9F2-Xe-UuK" secondAttribute="width" id="E4f-MP-0mJ"/>
                             <constraint firstItem="kdL-eN-P3x" firstAttribute="top" secondItem="dAN-lG-2dw" secondAttribute="bottom" constant="16" id="GFu-f9-Ri1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q2Z-IA-C0L" secondAttribute="trailing" id="K8C-MW-lng"/>
-                            <constraint firstItem="sMB-bF-DXE" firstAttribute="centerX" secondItem="xsm-v3-tcC" secondAttribute="centerX" id="MEK-D2-WrZ"/>
+                            <constraint firstItem="zmd-Px-Huw" firstAttribute="centerY" secondItem="xsm-v3-tcC" secondAttribute="centerY" id="L9E-LK-mwc"/>
                             <constraint firstItem="kdL-eN-P3x" firstAttribute="centerX" secondItem="9F2-Xe-UuK" secondAttribute="centerX" id="OCD-g1-qs4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VWX-Wb-Ejm" secondAttribute="bottom" constant="55" id="P21-1Y-ixa"/>
                             <constraint firstItem="xsm-v3-tcC" firstAttribute="width" secondItem="q2Z-IA-C0L" secondAttribute="width" id="S5n-Uq-hzK"/>
@@ -193,7 +192,8 @@
                             <constraint firstItem="9F2-Xe-UuK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="o9X-Fe-xYr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9F2-Xe-UuK" secondAttribute="bottom" id="oBq-sG-kfd"/>
                             <constraint firstItem="VWX-Wb-Ejm" firstAttribute="top" secondItem="GUy-Cs-tLv" secondAttribute="bottom" constant="16" id="prY-d5-xKe"/>
-                            <constraint firstItem="sMB-bF-DXE" firstAttribute="width" secondItem="xsm-v3-tcC" secondAttribute="width" id="wST-Ke-14s"/>
+                            <constraint firstItem="zmd-Px-Huw" firstAttribute="width" secondItem="xsm-v3-tcC" secondAttribute="width" id="t6y-HD-lA4"/>
+                            <constraint firstItem="zmd-Px-Huw" firstAttribute="centerX" secondItem="xsm-v3-tcC" secondAttribute="centerX" id="wIM-PT-WOM"/>
                             <constraint firstItem="GUy-Cs-tLv" firstAttribute="top" secondItem="9hm-Po-M8B" secondAttribute="bottom" constant="16" id="x3e-SK-qDA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

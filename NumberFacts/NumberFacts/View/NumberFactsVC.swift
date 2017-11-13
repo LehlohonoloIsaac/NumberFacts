@@ -61,10 +61,15 @@ class ViewController: UIViewController {
     
     @IBAction func onGetFactPressed(_ sender: UIButton) {
         if !(userInput.text?.isEmpty)! {
-            getFactButton.isEnabled = false
-            generateRandomFactButton.isEnabled = false
-            let number: Int = Int(userInput.text!)!
-            self.userNumberViewModel.generateFactFor(number)
+            let num = Int(userInput.text!)
+            if num != nil{
+                getFactButton.isEnabled = false
+                generateRandomFactButton.isEnabled = false
+                let number: Int = Int(userInput.text!)!
+                self.userNumberViewModel.generateFactFor(number)
+            }else{
+                self.showAlert(withMessage: "Make sure the input text is a valid number")
+            }
         } else {
             self.showAlert(withMessage: "Make sure the input text is not empty and is in a correct format")
         }
