@@ -41,15 +41,6 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter you favourite number to get a fact about it" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="kdL-eN-P3x">
-                                <rect key="frame" x="0.0" y="214" width="375" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Fq6-a3-kig"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAN-lG-2dw">
                                 <rect key="frame" x="0.0" y="108" width="375" height="80"/>
                                 <subviews>
@@ -96,6 +87,12 @@
                                     <constraint firstItem="Ps3-61-VRw" firstAttribute="leading" secondItem="dAN-lG-2dw" secondAttribute="leading" constant="8" id="sBs-5m-SHq"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter you favourite number to get a fact about it" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="kdL-eN-P3x">
+                                <rect key="frame" x="0.0" y="204" width="375" height="40"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9hm-Po-M8B">
                                 <rect key="frame" x="63" y="260" width="250" height="30"/>
                                 <subviews>
@@ -109,8 +106,14 @@
                                         <rect key="frame" x="192" y="0.0" width="58" height="30"/>
                                         <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Get Fact"/>
+                                        <connections>
+                                            <action selector="onGetFactPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lOe-Ra-iTG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="nJ1-kq-wpp"/>
+                                </constraints>
                             </stackView>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUy-Cs-tLv">
                                 <rect key="frame" x="63" y="306" width="250" height="250"/>
@@ -160,6 +163,7 @@
                             <constraint firstItem="GUy-Cs-tLv" firstAttribute="centerX" secondItem="9F2-Xe-UuK" secondAttribute="centerX" id="Aj6-WW-ejA"/>
                             <constraint firstItem="q2Z-IA-C0L" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="C1W-XK-bdQ"/>
                             <constraint firstItem="kdL-eN-P3x" firstAttribute="width" secondItem="9F2-Xe-UuK" secondAttribute="width" id="E4f-MP-0mJ"/>
+                            <constraint firstItem="kdL-eN-P3x" firstAttribute="top" secondItem="dAN-lG-2dw" secondAttribute="bottom" constant="16" id="GFu-f9-Ri1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q2Z-IA-C0L" secondAttribute="trailing" id="K8C-MW-lng"/>
                             <constraint firstItem="sMB-bF-DXE" firstAttribute="centerX" secondItem="xsm-v3-tcC" secondAttribute="centerX" id="MEK-D2-WrZ"/>
                             <constraint firstItem="kdL-eN-P3x" firstAttribute="centerX" secondItem="9F2-Xe-UuK" secondAttribute="centerX" id="OCD-g1-qs4"/>
@@ -184,6 +188,7 @@
                     </view>
                     <connections>
                         <outlet property="factLabel" destination="Tbb-uL-OOA" id="XFt-Oz-0k7"/>
+                        <outlet property="userInput" destination="ocZ-hp-gkD" id="mdF-qV-djT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

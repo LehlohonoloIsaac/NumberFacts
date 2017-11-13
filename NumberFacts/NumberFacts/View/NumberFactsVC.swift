@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     private var userNumberViewModel: UserNumberViewModel!
     @IBOutlet weak var factLabel: UILabel!
+    @IBOutlet weak var userInput: UITextField!
     
     
     override func viewDidLoad() {
@@ -20,8 +21,13 @@ class ViewController: UIViewController {
         self.userNumberViewModel.delegate = self
     }
     
+    @IBAction func onGetFactPressed(_ sender: UIButton) {
+        let number: Int = Int(userInput.text!)!
+        self.userNumberViewModel.generateFactFor(number)
+    }
+    
     @IBAction func onGenerateFactPressed(_ sender: UIButton) {
-        self.userNumberViewModel.generateAnotherRandomFact()
+        self.userNumberViewModel.generateRandomFact()
     }
 }
 
