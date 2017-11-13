@@ -68,7 +68,7 @@ class ViewController: UIViewController {
                 getFactButton.isEnabled = false
                 generateRandomFactButton.isEnabled = false
                 let number: Int = Int(userInput.text!)!
-                self.userNumberViewModel.generateFactFor(number)
+                self.userNumberViewModel.generateFactFor(endPoint,number)
             }else{
                 self.showAlert(withMessage: "Make sure the input text is a valid number")
             }
