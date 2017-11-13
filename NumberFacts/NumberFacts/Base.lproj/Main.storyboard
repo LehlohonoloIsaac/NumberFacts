@@ -44,36 +44,48 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAN-lG-2dw">
                                 <rect key="frame" x="0.0" y="108" width="375" height="80"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ps3-61-VRw">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ps3-61-VRw">
                                         <rect key="frame" x="8" y="8" width="359" height="64"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPL-rN-vMW">
-                                                <rect key="frame" x="0.0" y="0.0" width="90" height="64"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="64"/>
                                                 <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Trivia">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onTriviaButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gmh-2h-TNZ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCN-1l-7n9">
-                                                <rect key="frame" x="90" y="0.0" width="89.5" height="64"/>
+                                                <rect key="frame" x="90.5" y="0.0" width="88" height="64"/>
                                                 <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Math">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onMathButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xTT-WB-aT2"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvH-OE-CPf">
-                                                <rect key="frame" x="179.5" y="0.0" width="90" height="64"/>
+                                                <rect key="frame" x="180.5" y="0.0" width="88.5" height="64"/>
                                                 <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Date">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onDateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PmM-hS-2mM"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrq-Gw-vR9">
-                                                <rect key="frame" x="269.5" y="0.0" width="89.5" height="64"/>
+                                                <rect key="frame" x="271" y="0.0" width="88" height="64"/>
                                                 <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Year">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onYearButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LOv-OR-Svm"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -187,8 +199,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="dateButton" destination="VvH-OE-CPf" id="KoD-vP-wYs"/>
                         <outlet property="factLabel" destination="Tbb-uL-OOA" id="XFt-Oz-0k7"/>
+                        <outlet property="headingLabel" destination="kdL-eN-P3x" id="AnM-gW-Zlt"/>
+                        <outlet property="mathButton" destination="DCN-1l-7n9" id="B0t-jx-uZD"/>
+                        <outlet property="triviaButton" destination="fPL-rN-vMW" id="JBP-Je-e08"/>
                         <outlet property="userInput" destination="ocZ-hp-gkD" id="mdF-qV-djT"/>
+                        <outlet property="yearButton" destination="Jrq-Gw-vR9" id="U6k-Xf-tkn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
