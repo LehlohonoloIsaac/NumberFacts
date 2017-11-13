@@ -18,16 +18,23 @@ class UserNumberViewModel: NumberFactRepositoryInjectable{
     private var _fact: String?
     var delegate: NumberFactDelegate!
     
-    init(_ number: Int) {
-        self._userNumber = number
-        self.numberFact.fetchFactFor(self._userNumber, numberFactFetched: {fact in
+    init() {
+        self.numberFact.fetchFactForRandomNumber(numberFactFetched: {fact in
+            self._fact = fact
+            self.delegate.doneFetchingNumberFact()
+        })
+    }
+    
+    func generateAnotherRandomFact(){
+        self.numberFact.fetchFactForRandomNumber(numberFactFetched: {fact in
             self._fact = fact
             self.delegate.doneFetchingNumberFact()
         })
     }
 
     var showDisplayableFact: String {
-        return self._fact!
+        let fact = self._fact?.replacingOccurrences(of: "SUCCESS: ", with: "")
+        return fact!
     }
 }
 

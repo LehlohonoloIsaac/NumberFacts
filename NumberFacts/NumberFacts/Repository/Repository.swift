@@ -10,13 +10,12 @@ import Foundation
 import Alamofire
 
 protocol NumberFactRepository {
-    func fetchFactFor(_ number: Int,numberFactFetched: @escaping (String?) -> Void)
+    func fetchFactForRandomNumber(numberFactFetched: @escaping (String?) -> Void)
 }
 
 class NumberFactRepositoryImplementation : NumberFactRepository {
-    
-    func fetchFactFor(_ number: Int, numberFactFetched: @escaping (String?) ->Void) {
-        let endPoint = "\(URL_BASE)\(number)"
+    func fetchFactForRandomNumber(numberFactFetched: @escaping (String?) -> Void) {
+        let endPoint = "\(URL_BASE)\(RANDOM_NUMBER)"
         Alamofire.request(endPoint).responseString(completionHandler: {
             (_ response: DataResponse<String>?) in
             if let response = response {
