@@ -11,17 +11,23 @@ import UIKit
 class ViewController: UIViewController {
 
     private var userNumberViewModel: UserNumberViewModel!
+    @IBOutlet weak var factLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.userNumberViewModel = UserNumberViewModel(9)
+        self.userNumberViewModel = UserNumberViewModel()
         self.userNumberViewModel.delegate = self
+    }
+    
+    @IBAction func onGenerateFactPressed(_ sender: UIButton) {
+        self.userNumberViewModel.generateAnotherRandomFact()
     }
 }
 
 
 extension ViewController: NumberFactDelegate {
     func doneFetchingNumberFact() {
-        print(self.userNumberViewModel.showDisplayableFact)
+        factLabel.text = self.userNumberViewModel.showDisplayableFact
     }
 }
