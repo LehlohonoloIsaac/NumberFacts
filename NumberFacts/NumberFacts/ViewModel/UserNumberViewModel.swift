@@ -19,14 +19,14 @@ class UserNumberViewModel: NumberFactRepositoryInjectable{
     var delegate: NumberFactDelegate!
     
     init() {
-        self.numberFact.fetchFactForRandomNumber(numberFactFetched: {fact in
+        self.numberFact.fetchFactForRandomNumber(.random,numberFactFetched: {fact in
             self._fact = fact
             self.delegate.doneFetchingNumberFact()
         })
     }
     
-    func generateRandomFact(){
-        self.numberFact.fetchFactForRandomNumber(numberFactFetched: {fact in
+    func generateRandomFact(_ endPoint: EndPoint){
+        self.numberFact.fetchFactForRandomNumber(endPoint,numberFactFetched: {fact in
             self._fact = fact
             self.delegate.doneFetchingNumberFact()
         })

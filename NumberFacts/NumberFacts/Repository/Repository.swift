@@ -11,12 +11,30 @@ import Alamofire
 
 protocol NumberFactRepository {
     func fetchFactForNumber(number input: Int, numberFactFetched: @escaping (String?) -> Void)
-    func fetchFactForRandomNumber(numberFactFetched: @escaping (String?) -> Void)
+    func fetchFactForRandomNumber(_ endpoint: EndPoint,numberFactFetched: @escaping (String?) -> Void)
 }
 
 class NumberFactRepositoryImplementation : NumberFactRepository {
-    func fetchFactForRandomNumber(numberFactFetched: @escaping (String?) -> Void) {
-        let endPoint = "\(URL_BASE)\(RANDOM_NUMBER)"
+    func fetchFactForRandomNumber(_ endpoint: EndPoint,numberFactFetched: @escaping (String?) -> Void) {
+        var endPoint = "\(URL_BASE)\(RANDOM_NUMBER)"
+        switch endpoint {
+        case .random:
+            endPoint = "\(URL_BASE)\(RANDOM_NUMBER)"
+            break
+        case .randomDate:
+            endPoint = "\(URL_BASE)\(RANDOM_DATE)"
+            break
+        case .randomMath:
+            endPoint = "\(URL_BASE)\(RANDOM_MATH)"
+            break
+        case .randomYear:
+            endPoint = "\(URL_BASE)\(RANDOM_YEAR)"
+            break
+        default:
+            endPoint = "\(URL_BASE)\(RANDOM_NUMBER)"
+            break
+        }
+        print(endPoint)
         requestFactFromApi(from: endPoint, numberFactFetched: numberFactFetched)
     }
     
