@@ -11,11 +11,12 @@ import Alamofire
 
 protocol NumberFactRepository {
     func fetchFactForNumber(_ endpoint: EndPoint,number input: Int, numberFactFetched: @escaping (String?) -> Void)
-    func fetchFactForDate(_ endpoint: EndPoint,number input: Int, numberFactFetched: @escaping (String?) -> Void)
+    func fetchFactForDate(_ endpoint: EndPoint,date input: String, numberFactFetched: @escaping (String?) -> Void)
     func fetchFactForRandomNumber(_ endpoint: EndPoint,numberFactFetched: @escaping (String?) -> Void)
 }
 
 class NumberFactRepositoryImplementation : NumberFactRepository {
+    
     func fetchFactForRandomNumber(_ endpoint: EndPoint,numberFactFetched: @escaping (String?) -> Void) {
         var endPoint = "\(URL_BASE)\(RANDOM_NUMBER)"
         switch endpoint {
@@ -48,9 +49,14 @@ class NumberFactRepositoryImplementation : NumberFactRepository {
             let yearText = "/year/"
             endPoint = "\(URL_BASE)\(input)\(yearText)"
             break
+        case .date:
+            let dateText = "/date/"
+            endPoint = "\(URL_BASE)\(input)\(dateText)"
+            break
         case .math:
             let mathText = "/math/"
             endPoint = "\(URL_BASE)\(input)\(mathText)"
+            break
         default:
             endPoint = "\(URL_BASE)\(input)"
             break
@@ -58,7 +64,10 @@ class NumberFactRepositoryImplementation : NumberFactRepository {
         requestFactFromApi(from: endPoint, numberFactFetched: numberFactFetched)
     }
     
-    func fetchFactForDate(_ endpoint: EndPoint, number input: Int, numberFactFetched: @escaping (String?) -> Void) {
+    func fetchFactForDate(_ endpoint: EndPoint, date input: String, numberFactFetched: @escaping (String?) -> Void) {
+        let dateText = "/date/"
+        let endPoint = "\(URL_BASE)\(input)\(dateText)"
+        requestFactFromApi(from: endPoint, numberFactFetched: numberFactFetched)
     }
     
     func requestFactFromApi(from endPoint: String,numberFactFetched: @escaping (String?) -> Void){

@@ -38,6 +38,13 @@ class UserNumberViewModel: NumberFactRepositoryInjectable{
             self.delegate.doneFetchingNumberFact()
         })
     }
+    
+    func generateFactFor(_ endPoint: EndPoint, _ date: String){
+        self.numberFact.fetchFactForDate(endPoint, date: date, numberFactFetched: {fact in
+            self._fact = fact
+            self.delegate.doneFetchingNumberFact()
+        })
+    }
 
     var showDisplayableFact: String {
         let fact = self._fact?.replacingOccurrences(of: "SUCCESS: ", with: "")
