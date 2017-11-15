@@ -61,21 +61,37 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    fileprivate func generateFact() {
+        let num = Int(userInput.text!)
+        if num != nil{
+            getFactButton.isEnabled = false
+            generateRandomFactButton.isEnabled = false
+            let number: Int = Int(userInput.text!)!
+            self.userNumberViewModel.generateFactFor(endPoint,number)
+        }
+        else
+        {
+            self.showAlert(withMessage: "Make sure the input text is a valid number")
+        }
+    }
+    
     @IBAction func onGetFactPressed(_ sender: UIButton) {
         if !(userInput.text?.isEmpty)! {
-            let num = Int(userInput.text!)
-            if num != nil{
-                getFactButton.isEnabled = false
-                generateRandomFactButton.isEnabled = false
-                let number: Int = Int(userInput.text!)!
-                self.userNumberViewModel.generateFactFor(number)
-            }else{
-                self.showAlert(withMessage: "Make sure the input text is a valid number")
+            if endPoint == .date {
+                if (userInput.text?.contains("/"))!{
+                   let input = userInput.text
+                    self.userNumberViewModel.generateFactFor(endPoint, input!)
+                }else{
+                    self.generateFact()
+                }
+            }else {
+                self.generateFact()
             }
         } else {
             self.showAlert(withMessage: "Make sure the input text is not empty and is in a correct format")
         }
     }
+    
     
      func updateEndPointTobeARandomEndPoint() {
         switch endPoint {

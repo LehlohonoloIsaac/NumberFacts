@@ -32,8 +32,15 @@ class UserNumberViewModel: NumberFactRepositoryInjectable{
         })
     }
     
-    func generateFactFor(_ number: Int){
-        self.numberFact.fetchFactForNumber(number: number, numberFactFetched: {fact in
+    func generateFactFor(_ endPoint: EndPoint,_ number: Int){
+        self.numberFact.fetchFactForNumber(endPoint, number: number, numberFactFetched: {fact in 
+            self._fact = fact
+            self.delegate.doneFetchingNumberFact()
+        })
+    }
+    
+    func generateFactFor(_ endPoint: EndPoint, _ date: String){
+        self.numberFact.fetchFactForDate(endPoint, date: date, numberFactFetched: {fact in
             self._fact = fact
             self.delegate.doneFetchingNumberFact()
         })
