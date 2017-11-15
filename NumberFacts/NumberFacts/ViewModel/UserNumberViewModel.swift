@@ -8,18 +8,48 @@
 
 import Foundation
 
-struct UserNumberViewModel: NumberFactRepositoryInjectable{
-
-    private var userNumber: Int!
-    private var fact: String?
-    
-    init(_ number: Int) {
-        self.userNumber = number
-        self.fact = self.numberFact.fetchFactFor(self.userNumber)
-    }
-    
-    var showDisplayableFact: String {
-        return self.fact!
-    }
-    
+protocol NumberFactDelegate {
+    func doneFetchingNumberFact()
 }
+
+class UserNumberViewModel: NumberFactRepositoryInjectable{
+
+    private var _userNumber: Int!
+    private var _fact: String?
+    var delegate: NumberFactDelegate!
+    
+    init() {
+        self.numberFact.fetchFactForRandomNumber(.random,numberFactFetched: {fact in
+            self._fact = fact
+            self.delegate.doneFetchingNumberFact()
+        })
+    }
+    
+    func generateRandomFact(_ endPoint: EndPoint){
+        self.numberFact.fetchFactForRandomNumber(endPoint,numberFactFetched: {fact in
+            self._fact = fact
+            self.delegate.doneFetchingNumberFact()
+        })
+    }
+    
+    func generateFactFor(_ endPoint: EndPoint,_ number: Int){
+        self.numberFact.fetchFactForNumber(endPoint, number: number, numberFactFetched: {fact in 
+            self._fact = fact
+            self.delegate.doneFetchingNumberFact()
+        })
+    }
+    
+    func generateFactFor(_ endPoint: EndPoint, _ date: String){
+        self.numberFact.fetchFactForDate(endPoint, date: date, numberFactFetched: {fact in
+            self._fact = fact
+            self.delegate.doneFetchingNumberFact()
+        })
+    }
+
+    var showDisplayableFact: String {
+        let fact = self._fact?.replacingOccurrences(of: "SUCCESS: ", with: "")
+        return fact!
+    }
+}
+
+
