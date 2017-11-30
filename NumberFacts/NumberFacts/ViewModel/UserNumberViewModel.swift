@@ -8,31 +8,31 @@
 
 import Foundation
 
-protocol NumberFactDelegate {
+protocol NumberFactDelegate: class {
     func doneFetchingNumberFact()
 }
 
-class UserNumberViewModel: NumberFactRepositoryInjectable{
-
+class UserNumberViewModel: NumberFactRepositoryInjectable {
+    
     private var _userNumber: Int!
     private var _fact: String?
-    var delegate: NumberFactDelegate!
+    weak var delegate: NumberFactDelegate!
     
     init() {
-        self.numberFact.fetchFactForRandomNumber(.random,numberFactFetched: {fact in
+        self.numberFact.fetchFactForRandomNumber(.random, numberFactFetched: {fact in
             self._fact = fact
             self.delegate.doneFetchingNumberFact()
         })
     }
     
-    func generateRandomFact(_ endPoint: EndPoint){
-        self.numberFact.fetchFactForRandomNumber(endPoint,numberFactFetched: {fact in
+    func generateRandomFact(_ endPoint: EndPoint) {
+        self.numberFact.fetchFactForRandomNumber(endPoint, numberFactFetched: {fact in
             self._fact = fact
             self.delegate.doneFetchingNumberFact()
         })
     }
     
-    func generateFactFor(_ number: Int){
+    func generateFactFor(_ number: Int) {
         self.numberFact.fetchFactForNumber(number: number, numberFactFetched: {fact in
             self._fact = fact
             self.delegate.doneFetchingNumberFact()
@@ -44,5 +44,3 @@ class UserNumberViewModel: NumberFactRepositoryInjectable{
         return fact!
     }
 }
-
-

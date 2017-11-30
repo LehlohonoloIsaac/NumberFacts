@@ -8,8 +8,8 @@
 
 import Foundation
 
-let URL_BASE = "http://numbersapi.com/"
-let RANDOM_NUMBER = "random/trivia/"
-let RANDOM_YEAR = "random/year/"
-let RANDOM_DATE = "random/date"
-let RANDOM_MATH = "random/math"
+let urlBase = "http://numbersapi.com/"
+let randomNumber = "random/trivia/"
+let randomYear = "random/year/"
+let randomDate = "random/date"
+let randomMath = "random/math"

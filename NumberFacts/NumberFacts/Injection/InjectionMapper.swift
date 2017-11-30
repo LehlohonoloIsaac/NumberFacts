@@ -9,14 +9,14 @@
 import Foundation
 
 class InjectionMapper {
-    
+
     private static var mapper: NumberFactRepository = NumberFactRepositoryImplementation()
     
     static func resolve() -> NumberFactRepository {
         return mapper
     }
     
-    static func inject(_ mapper: NumberFactRepository){
+    static func inject(_ mapper: NumberFactRepository) {
         self.mapper = mapper
     }
     
