@@ -15,7 +15,7 @@ struct UserNumber {
     var number: Int {
         if _number >= 0 {
             return _number
-        }else {
+        } else {
             return -1
         }
     }

@@ -4,10 +4,12 @@ platform :ios, '10.0'
 target 'NumberFacts' do
   use_frameworks!
   pod 'Alamofire', '~> 4.5'
+  pod 'SwiftLint'
 
   target 'NumberFactsTests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'Alamofire', '~> 4.5'
+    pod 'SwiftLint'
   end
 
 end

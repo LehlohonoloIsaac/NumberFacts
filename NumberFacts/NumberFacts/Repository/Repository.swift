@@ -11,41 +11,35 @@ import Alamofire
 
 protocol NumberFactRepository {
     func fetchFactForNumber(number input: Int, numberFactFetched: @escaping (String?) -> Void)
-    func fetchFactForRandomNumber(_ endpoint: EndPoint,numberFactFetched: @escaping (String?) -> Void)
+    func fetchFactForRandomNumber(_ endpoint: EndPoint, numberFactFetched: @escaping (String?) -> Void)
 }
 
-class NumberFactRepositoryImplementation : NumberFactRepository {
-    func fetchFactForRandomNumber(_ endpoint: EndPoint,numberFactFetched: @escaping (String?) -> Void) {
-        var endPoint = "\(URL_BASE)\(RANDOM_NUMBER)"
+class NumberFactRepositoryImplementation: NumberFactRepository {
+    func fetchFactForRandomNumber(_ endpoint: EndPoint, numberFactFetched: @escaping (String?) -> Void) {
+        var endPoint = "\(urlBase)\(randomNumber)"
         switch endpoint {
         case .random:
-            endPoint = "\(URL_BASE)\(RANDOM_NUMBER)"
-            break
+            endPoint = "\(urlBase)\(randomNumber)"
         case .randomDate:
-            endPoint = "\(URL_BASE)\(RANDOM_DATE)"
-            break
+            endPoint = "\(urlBase)\(randomDate)"
         case .randomMath:
-            endPoint = "\(URL_BASE)\(RANDOM_MATH)"
-            break
+            endPoint = "\(urlBase)\(randomMath)"
         case .randomYear:
-            endPoint = "\(URL_BASE)\(RANDOM_YEAR)"
-            break
+            endPoint = "\(urlBase)\(randomYear)"
         default:
-            endPoint = "\(URL_BASE)\(RANDOM_NUMBER)"
-            break
+            endPoint = "\(urlBase)\(randomNumber)"
         }
         print(endPoint)
         requestFactFromApi(from: endPoint, numberFactFetched: numberFactFetched)
     }
     
     func fetchFactForNumber(number input: Int, numberFactFetched: @escaping (String?) -> Void) {
-        let endPoint = "\(URL_BASE)\(input)"
+        let endPoint = "\(urlBase)\(input)"
         requestFactFromApi(from: endPoint, numberFactFetched: numberFactFetched)
     }
     
-    func requestFactFromApi(from endPoint: String,numberFactFetched: @escaping (String?) -> Void){
-        Alamofire.request(endPoint).responseString(completionHandler: {
-            (_ response: DataResponse<String>?) in
+    func requestFactFromApi(from endPoint: String, numberFactFetched: @escaping (String?) -> Void) {
+        Alamofire.request(endPoint).responseString(completionHandler: { (_ response: DataResponse<String>?) in
             if let response = response {
                 let responseString  = String(describing: response)
                 numberFactFetched(responseString)
@@ -53,4 +47,3 @@ class NumberFactRepositoryImplementation : NumberFactRepository {
         })
     }
 }
-

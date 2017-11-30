@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var factContainerView: UIView!
     @IBOutlet weak var generateRandomFactButton: UIButton!
     
-    private var optionButtons = Array<UIButton>()
+    private var optionButtons = [UIButton]()
     private var endPoint: EndPoint = .random
     
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         self.configureView()
     }
     
-    func configureView(){
+    func configureView() {
         getFactButton.createBorder(withRadius: 5)
         factContainerView.createBorder(withRadius: 5)
         for button in optionButtons {
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         optionButtons.append(yearButton)
     }
     
-    func showAlert(withMessage message: String? = "Make sure the input field is not empty"){
+    func showAlert(withMessage message: String? = "Make sure the input field is not empty") {
         let alertController = UIAlertController(title: "Wrong Input", message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
@@ -63,12 +63,12 @@ class ViewController: UIViewController {
     @IBAction func onGetFactPressed(_ sender: UIButton) {
         if !(userInput.text?.isEmpty)! {
             let num = Int(userInput.text!)
-            if num != nil{
+            if num != nil {
                 getFactButton.isEnabled = false
                 generateRandomFactButton.isEnabled = false
                 let number: Int = Int(userInput.text!)!
                 self.userNumberViewModel.generateFactFor(number)
-            }else{
+            } else {
                 self.showAlert(withMessage: "Make sure the input text is a valid number")
             }
         } else {
@@ -80,16 +80,12 @@ class ViewController: UIViewController {
         switch endPoint {
         case .trivia:
             self.endPoint = .random
-            break
         case .math:
             self.endPoint = .randomMath
-            break
         case .date:
             self.endPoint = .randomDate
-            break
         case .year:
             self.endPoint = .randomYear
-            break
         default:
             break
         }
@@ -135,7 +131,6 @@ class ViewController: UIViewController {
     
 }
 
-
 extension ViewController: NumberFactDelegate {
     func doneFetchingNumberFact() {
         factLabel.text = self.userNumberViewModel.showDisplayableFact
@@ -143,4 +138,3 @@ extension ViewController: NumberFactDelegate {
         generateRandomFactButton.isEnabled = true
     }
 }
-

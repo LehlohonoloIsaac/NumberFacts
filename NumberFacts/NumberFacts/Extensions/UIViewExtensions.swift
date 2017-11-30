@@ -11,7 +11,7 @@ import UIKit
 
 extension UIView {
     
-    func createBorder(withRadius radius: CGFloat){
+    func createBorder(withRadius radius: CGFloat) {
         self.layer.cornerRadius = radius
     }
 }
